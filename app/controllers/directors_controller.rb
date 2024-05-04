@@ -36,4 +36,22 @@ class DirectorsController < ApplicationController
 
     render({ :template => "director_templates/eldest" })
   end
+
+  def create
+    director = Director.new
+
+    director.name = params.fetch("the_name")
+    director.dob = params.fetch("the_dob")
+    director.bio = params.fetch("the_bio")
+    director.image = params.fetch("the_image")
+
+    director.save
+
+    redirect_to("/directors")
+
+  end
+
+
+
+
 end
